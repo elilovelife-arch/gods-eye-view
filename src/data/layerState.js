@@ -377,6 +377,8 @@ export const LAYER_STATE_REGISTRY = Object.freeze([
     disposition: 'enabled+options',
     optionOwner: 'satellites',
   }),
+  // SYNTH's live places (Eli's leads, his town's headlines): read from SYNTH's own feed when served through SYNTH.
+  Object.freeze({ id: 'synth', token: 'y', disposition: 'enabled-only' }),
   Object.freeze({
     id: 'telegeography-submarine-cables',
     token: 'u',
