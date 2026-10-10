@@ -687,6 +687,9 @@ export const LAYER_STATE_REGISTRY = Object.freeze([
     disposition: 'enabled+options',
     optionOwner: 'street-level',
   }),
+  // SYNTH's live places (Eli's leads, his town's headlines): read from SYNTH's own feed when served through SYNTH.
+  // Token 5, not 'y': upstream gave 'y' to weather-cyclones after SYNTH's layer was written (Oct 2026).
+  Object.freeze({ id: 'synth', token: '5', disposition: 'enabled-only' }),
   Object.freeze({
     id: 'telegeography-submarine-cables',
     token: 'u',

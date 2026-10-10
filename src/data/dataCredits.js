@@ -151,6 +151,13 @@ export const DATA_CREDITS = [
     html: 'Earthquakes: Data courtesy of the U.S. Geological Survey',
   },
   {
+    key: 'synth',
+    html:
+      'SYNTH places: leads from ' +
+      '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a> ' +
+      '(ODbL 1.0); local headlines via Google News RSS, each linked to its publisher',
+  },
+  {
     key: 'nasa-gibs',
     html:
       'Recent imagery: We acknowledge the use of imagery provided by services from ' +

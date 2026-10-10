@@ -27,6 +27,7 @@ import { createApplicationEarthquakes } from './layers/earthquakes.js';
 import { createApplicationAirQuality } from './layers/airQuality.js';
 import { createApplicationFirePerimeters } from './layers/perimeters.js';
 import { createApplicationGnssIntegrity } from './layers/gnss.js';
+import { createApplicationSynth } from './layers/synth.js';
 import { createApplicationCables } from './layers/submarineCables.js';
 import { createApplicationStreetLevel } from './layers/streetLevel.js';
 import { createInfrastructureLayers } from '../data/infrastructure.js';
@@ -110,6 +111,7 @@ export function createApplicationCatalog({
         createBhoteKoshiLocatorLayer({
           boundaryResolver: nepalBoundaryResolver,
         }),
+        createApplicationSynth({ source: sources.synth }),
         flights,
         military,
         createApplicationLocalAdsb({
