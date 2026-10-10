@@ -6,10 +6,18 @@
  */
 export const SYNTH_KINDS = Object.freeze(['lead', 'news', 'event']);
 
+/** A non-empty trimmed string, or null for anything else. */
 const text = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);
-// Only SYNTH's own pages (a same-origin path) or an https article; anything else is dropped, never followed.
+/** Only SYNTH's own pages (a same-origin path) or an https article; anything else is dropped, never followed. */
 const link = (v) => (typeof v === 'string' && /^(\/(?!\/)|https:\/\/)/.test(v) ? v : null);
 
+/**
+ * Validate SYNTH's whole feed and turn it into rows: one per lead or event, and one per town for its headlines (newest
+ * first). Returns null for a feed that is not a FeatureCollection of points of a known kind, so the layer keeps its
+ * last good snapshot instead of drawing half a feed.
+ * @param {Object} geojson - what /app/live/places answered
+ * @returns {Array<Object>|null}
+ */
 export function normalizeSynthSnapshot(geojson) {
   if (geojson?.type !== 'FeatureCollection' || !Array.isArray(geojson.features)) return null;
   const rows = [];

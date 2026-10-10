@@ -7,6 +7,7 @@ export const SYNTH_LABEL_MAX = 42;
 /** SYNTH's own colours (the live map design): leads green, news blue, events amber. */
 export const SYNTH_KIND_COLORS = Object.freeze({ lead: '#a6e37a', news: '#6ab0ff', event: '#f0b36b' });
 
+/** The Cesium colour for a kind of place (lead, news, event); white for anything else. */
 export function kindColor(kind) {
   return Cesium.Color.fromCssColorString(SYNTH_KIND_COLORS[kind] || '#ffffff');
 }
