@@ -153,7 +153,7 @@ export const DATA_CREDITS = [
   {
     key: 'synth',
     html:
-      'SYNTH places: leads derive from © OpenStreetMap contributors (ODbL 1.0, credited above); ' +
+      'SYNTH places: leads derive from © OpenStreetMap contributors (ODbL 1.0, credited in this list); ' +
       'local headlines via Google News RSS, each linked to its publisher',
   },
   {
