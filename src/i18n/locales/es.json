@@ -2659,6 +2659,8 @@
   "Perimeter source unavailable": "Fuente de perímetros no disponible",
   "Imagery catalog unavailable": "Catálogo de imágenes no disponible",
   "Earthquake source unavailable": "Fuente de terremotos no disponible",
+  "SYNTH · leads & local news": "SYNTH · prospectos y noticias locales",
+  "SYNTH places unavailable": "Lugares de SYNTH no disponibles",
   "TeleGeography load failed": "Falló la carga de TeleGeography",
   "Wind request timed out": "La petición del viento agotó el tiempo de espera",
   "Malformed wind manifest": "Manifiesto del viento mal formado",

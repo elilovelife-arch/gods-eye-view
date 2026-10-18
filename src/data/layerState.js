@@ -688,8 +688,10 @@ export const LAYER_STATE_REGISTRY = Object.freeze([
     optionOwner: 'street-level',
   }),
   // SYNTH's live places (Eli's leads, his town's headlines): read from SYNTH's own feed when served through SYNTH.
-  // Token 5, not 'y': upstream gave 'y' to weather-cyclones after SYNTH's layer was written (Oct 2026).
-  Object.freeze({ id: 'synth', token: '5', disposition: 'enabled-only' }),
+  // Token 'sy', not 'y': upstream gave 'y' to weather-cyclones after SYNTH's layer was written (Oct 2026). A fork-private
+  // two-character token also stays clear of the digits upstream hands to its next layers (5, 6, ...), so merging
+  // upstream later never collides with this one.
+  Object.freeze({ id: 'synth', token: 'sy', disposition: 'enabled-only' }),
   Object.freeze({
     id: 'telegeography-submarine-cables',
     token: 'u',

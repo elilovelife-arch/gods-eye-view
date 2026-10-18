@@ -9,7 +9,8 @@ export const SYNTH_KINDS = Object.freeze(['lead', 'news', 'event']);
 /** A non-empty trimmed string, or null for anything else. */
 const text = (v) => (typeof v === 'string' && v.trim() ? v.trim() : null);
 /** Only SYNTH's own pages (a same-origin path) or an https article; anything else is dropped, never followed. */
-const link = (v) => (typeof v === 'string' && /^(\/(?!\/)|https:\/\/)/.test(v) ? v : null);
+const link = (v) =>
+  typeof v === 'string' && /^(\/(?!\/)|https:\/\/)/.test(v) ? v : null;
 
 /**
  * Validate SYNTH's whole feed and turn it into rows: one per lead or event, and one per town for its headlines (newest
@@ -19,7 +20,8 @@ const link = (v) => (typeof v === 'string' && /^(\/(?!\/)|https:\/\/)/.test(v) ?
  * @returns {Array<Object>|null}
  */
 export function normalizeSynthSnapshot(geojson) {
-  if (geojson?.type !== 'FeatureCollection' || !Array.isArray(geojson.features)) return null;
+  if (geojson?.type !== 'FeatureCollection' || !Array.isArray(geojson.features))
+    return null;
   const rows = [];
   const ids = new Set();
   const towns = new Map();
@@ -37,25 +39,54 @@ export function normalizeSynthSnapshot(geojson) {
     )
       return null;
     const [lon, lat] = coordinates;
-    if (!Number.isFinite(lon) || Math.abs(lon) > 180 || !Number.isFinite(lat) || Math.abs(lat) > 90) return null;
+    if (
+      !Number.isFinite(lon) ||
+      Math.abs(lon) > 180 ||
+      !Number.isFinite(lat) ||
+      Math.abs(lat) > 90
+    )
+      return null;
     const at = Number.isFinite(p.at) ? p.at : null;
     if (p.kind === 'news') {
       const key = `${lon},${lat}`;
       let row = towns.get(key);
       if (!row) {
-        row = { stableId: `news:${key}`, kind: 'news', lon, lat, town: text(p.town), items: [] };
+        row = {
+          stableId: `news:${key}`,
+          kind: 'news',
+          lon,
+          lat,
+          town: text(p.town),
+          items: [],
+        };
         towns.set(key, row);
         rows.push(row);
       }
       const title = text(p.title);
-      if (title) row.items.push({ title, open: link(p.open), at, source: text(p.source) });
+      if (title)
+        row.items.push({
+          title,
+          open: link(p.open),
+          at,
+          source: text(p.source),
+        });
       continue;
     }
     const stableId = `${p.kind}:${p.id == null || p.id === '' ? `n${index + 1}` : String(p.id)}`;
     if (ids.has(stableId)) return null;
     ids.add(stableId);
-    rows.push({ stableId, kind: p.kind, lon, lat, title: text(p.title), open: link(p.open), at, status: text(p.status) });
+    rows.push({
+      stableId,
+      kind: p.kind,
+      lon,
+      lat,
+      title: text(p.title),
+      open: link(p.open),
+      at,
+      status: text(p.status),
+    });
   }
-  for (const row of towns.values()) row.items.sort((a, b) => (b.at ?? 0) - (a.at ?? 0));
+  for (const row of towns.values())
+    row.items.sort((a, b) => (b.at ?? 0) - (a.at ?? 0));
   return rows;
 }

@@ -2716,6 +2716,8 @@
   "Perimeter source unavailable": "Источник контуров пожаров недоступен",
   "Imagery catalog unavailable": "Каталог снимков недоступен",
   "Earthquake source unavailable": "Источник данных о землетрясениях недоступен",
+  "SYNTH · leads & local news": "SYNTH · лиды и местные новости",
+  "SYNTH places unavailable": "Места SYNTH недоступны",
   "TeleGeography load failed": "Не удалось загрузить данные TeleGeography",
   "Wind request timed out": "Истекло время ожидания запроса ветра",
   "Malformed wind manifest": "Некорректный манифест ветра",

@@ -153,9 +153,8 @@ export const DATA_CREDITS = [
   {
     key: 'synth',
     html:
-      'SYNTH places: leads from ' +
-      '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a> ' +
-      '(ODbL 1.0); local headlines via Google News RSS, each linked to its publisher',
+      'SYNTH places: leads derive from © OpenStreetMap contributors (ODbL 1.0, credited above); ' +
+      'local headlines via Google News RSS, each linked to its publisher',
   },
   {
     key: 'nasa-gibs',
