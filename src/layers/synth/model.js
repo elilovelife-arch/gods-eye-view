@@ -5,7 +5,11 @@ export const SYNTH_OVERLAY_COLLISION_CAPACITY = 32;
 export const SYNTH_LABEL_MAX = 42;
 
 /** SYNTH's own colours (the live map design): leads green, news blue, events amber. */
-export const SYNTH_KIND_COLORS = Object.freeze({ lead: '#a6e37a', news: '#6ab0ff', event: '#f0b36b' });
+export const SYNTH_KIND_COLORS = Object.freeze({
+  lead: '#a6e37a',
+  news: '#6ab0ff',
+  event: '#f0b36b',
+});
 
 /** The Cesium colour for a kind of place (lead, news, event); white for anything else. */
 export function kindColor(kind) {
@@ -24,17 +28,26 @@ export function synthLabel(row) {
   } else {
     label = row?.title || (row?.kind === 'event' ? 'Event' : 'Lead');
   }
-  return label.length > SYNTH_LABEL_MAX ? `${label.slice(0, SYNTH_LABEL_MAX - 1).trimEnd()}…` : label;
+  return label.length > SYNTH_LABEL_MAX
+    ? `${label.slice(0, SYNTH_LABEL_MAX - 1).trimEnd()}…`
+    : label;
 }
 
 /** A town's headlines are always labelled, then events, then the newest leads. Pure. */
 export function synthPriority(row) {
-  const base = { news: 3_000_000, event: 2_000_000, lead: 1_000_000 }[row?.kind] || 0;
+  const base =
+    { news: 3_000_000, event: 2_000_000, lead: 1_000_000 }[row?.kind] || 0;
   return base + Math.min(999_999, Math.floor((row?.at || 0) / 10_000));
 }
 
 /** Build the source-owned presentation for one SYNTH label. */
-export function createSynthOverlayEntry({ id, position, title, accent, priority }) {
+export function createSynthOverlayEntry({
+  id,
+  position,
+  title,
+  accent,
+  priority,
+}) {
   return {
     id: String(id),
     position,
@@ -55,12 +68,21 @@ export function createSynthOverlayEntry({ id, position, title, accent, priority 
 }
 
 /** Keep the highest-priority labels, with stable identity as the tie-break. */
-export function selectSynthOverlayCohort(entries, limit = SYNTH_OVERLAY_COHORT_LIMIT) {
-  const cap = Math.max(0, Math.min(SYNTH_OVERLAY_COHORT_LIMIT, Math.floor(Number(limit) || 0)));
+export function selectSynthOverlayCohort(
+  entries,
+  limit = SYNTH_OVERLAY_COHORT_LIMIT,
+) {
+  const cap = Math.max(
+    0,
+    Math.min(SYNTH_OVERLAY_COHORT_LIMIT, Math.floor(Number(limit) || 0)),
+  );
   if (!Array.isArray(entries) || cap === 0) return [];
   return entries
     .slice()
-    .sort((a, b) => b.priority - a.priority || String(a.id).localeCompare(String(b.id)))
+    .sort(
+      (a, b) =>
+        b.priority - a.priority || String(a.id).localeCompare(String(b.id)),
+    )
     .slice(0, cap);
 }
 

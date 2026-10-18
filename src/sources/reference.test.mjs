@@ -12,12 +12,25 @@ test('reference factories retain compatibility without starting acquisition or s
   assert.equal(createReferenceSources, createStandaloneReferenceSources);
   const first = createReferenceSources();
   const second = createReferenceSources();
-  assert.deepEqual(Object.keys(first), ['earthquakes', 'synth', 'cables']);   // SYNTH's live places since Oct 10 2026
+  assert.deepEqual(Object.keys(first), [
+    'earthquakes',
+    'air-quality',
+    'fire-perimeters',
+    'synth',
+    'cables',
+    'gnss-integrity',
+  ]);
   assert.notEqual(first.earthquakes, second.earthquakes);
+  assert.notEqual(first['air-quality'], second['air-quality']);
+  assert.notEqual(first['fire-perimeters'], second['fire-perimeters']);
   assert.notEqual(first.synth, second.synth);
   assert.notEqual(first.cables, second.cables);
+  assert.notEqual(first['gnss-integrity'], second['gnss-integrity']);
   assert.equal(typeof first.earthquakes.getSnapshot, 'function');
+  assert.equal(typeof first['air-quality'].getSnapshot, 'function');
+  assert.equal(typeof first['fire-perimeters'].getSnapshot, 'function');
   assert.equal(typeof first.synth.getSnapshot, 'function');
   assert.equal(typeof first.cables.fetch, 'function');
+  assert.equal(typeof first['gnss-integrity'].getSnapshot, 'function');
   assert.equal(requests, 0);
 });
