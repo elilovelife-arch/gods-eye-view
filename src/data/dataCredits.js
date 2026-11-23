@@ -215,6 +215,12 @@ export const DATA_CREDITS = [
     html: 'Earthquakes: Data courtesy of the U.S. Geological Survey',
   },
   {
+    key: 'synth',
+    html:
+      'SYNTH places: leads derive from © OpenStreetMap contributors (ODbL 1.0, credited in this list); ' +
+      'local headlines via Google News RSS, each linked to its publisher',
+  },
+  {
     key: 'openseamap',
     html:
       'Sea marks overlay: ' +

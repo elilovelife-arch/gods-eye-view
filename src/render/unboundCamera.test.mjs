@@ -71,6 +71,8 @@ const FALLS_BACK = new Set(['src/data/followed.js']);
  */
 const DRAW_FROM_CALLER = new Set([
   './layers/earthquakes',
+  // SYNTH's places (fork layer): one point set through `drawOf`, labels through the overlay host.
+  './layers/synth',
   './layers/bikeshare',
   './layers/gnss',
   './layers/perimeters',

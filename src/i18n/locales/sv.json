@@ -1507,6 +1507,8 @@
   "Routing timed out": "Tidsgränsen för ruttberäkningen överskreds",
   "Routing unavailable — no response from the routing service": "Ruttberäkning otillgänglig – inget svar från ruttjänsten",
   "Earthquake source unavailable": "Jordbävningskälla otillgänglig",
+  "SYNTH · leads & local news": "SYNTH · leads och lokala nyheter",
+  "SYNTH places unavailable": "SYNTH-platser är inte tillgängliga",
   "live feed unavailable": "liveflödet otillgängligt",
   "{value}°N": "{value}° N",
   "{value}°S": "{value}° S",

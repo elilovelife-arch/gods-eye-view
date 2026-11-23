@@ -485,6 +485,8 @@ export const VOICE_OFF_LAYERS = Object.freeze({
   'wildlife-sightings':
     'community observation layer; no room in the prompt budget',
   rail: 'train layer; no room in the prompt budget, and "trains" still names transit',
+  synth:
+    "SYNTH's own places (leads, town headlines); no voice tools, so the pinned Realtime payload stays as upstream's",
 });
 
 const TYPE_NAMES = Object.freeze({

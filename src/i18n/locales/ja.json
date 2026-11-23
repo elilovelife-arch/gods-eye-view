@@ -770,6 +770,8 @@
   "Routing timed out": "ルート検索がタイムアウトしました",
   "Routing unavailable — no response from the routing service": "ルート検索を利用できません：ルート検索サービスから応答がありません",
   "Earthquake source unavailable": "地震のソースを利用できません",
+  "SYNTH · leads & local news": "SYNTH · 見込み客と地域ニュース",
+  "SYNTH places unavailable": "SYNTH の場所を利用できません",
   "Focus fire detection {title}, {details}": "火災検知{title}にフォーカス（{details}）",
   "live feed unavailable": "ライブフィードを利用できません",
   "{value} conf": "信頼度 {value}",

@@ -817,6 +817,8 @@
   "Routing timed out": "Минув час очікування маршруту",
   "Routing unavailable — no response from the routing service": "Побудова маршруту недоступна — сервіс маршрутизації не відповідає",
   "Earthquake source unavailable": "Джерело даних про землетруси недоступне",
+  "SYNTH · leads & local news": "SYNTH · ліди та місцеві новини",
+  "SYNTH places unavailable": "Місця SYNTH недоступні",
   "Focus fire detection {title}, {details}": "Фокус на виявленні пожежі {title}, {details}",
   "live feed unavailable": "потік даних у реальному часі недоступний",
   "{value} conf": "достов.: {value}",

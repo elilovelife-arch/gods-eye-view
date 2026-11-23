@@ -1591,6 +1591,8 @@
   "Routing timed out": "Zeitüberschreitung beim Routing",
   "Routing unavailable — no response from the routing service": "Routing nicht verfügbar – keine Antwort vom Routing-Dienst",
   "Earthquake source unavailable": "Erdbebenquelle nicht verfügbar",
+  "SYNTH · leads & local news": "SYNTH · Leads & Lokalnachrichten",
+  "SYNTH places unavailable": "SYNTH-Orte nicht verfügbar",
   "live feed unavailable": "Live-Feed nicht verfügbar",
   "{value}°N": "{value}°N",
   "{value}°S": "{value}°S",
